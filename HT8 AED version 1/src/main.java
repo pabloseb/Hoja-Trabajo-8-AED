@@ -1,3 +1,9 @@
+/**
+ * @author Pablo Herrera & Jorge Andrino
+ * @since 8/04/2022
+ * @version 1
+ *
+ */
 public class main {
     public static void main(String[] args) {
         UsersView view = new UsersView();

@@ -1,9 +1,18 @@
+/**
+ * Class that reads file and add the element to the heap
+ */
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.PriorityQueue;
 
 public class Files {
+    /**
+     * reads file and add element to heap
+     * @param ruta path of file
+     * @return priority queue
+     * @throws IOException if file not found, throws exception
+     */
     public static PriorityQueue<Paciente> read(String ruta) throws IOException {
         PriorityQueue<Paciente> pq = new PriorityQueue<>();
         BufferedReader lector = new BufferedReader(new FileReader(ruta));

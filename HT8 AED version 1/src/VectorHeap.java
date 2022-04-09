@@ -1,3 +1,10 @@
+/**
+ * @author Pablo Herrera & Jorge Andrino
+ * @since 8/04/2022
+ * @version 1
+ *
+ * Class that implements Priority Queue
+ */
 import java.util.Vector;
 public class VectorHeap <E extends  Comparable<E>> implements PriorityQueue{
     protected Vector<E> data;
@@ -15,17 +22,37 @@ public class VectorHeap <E extends  Comparable<E>> implements PriorityQueue{
         }
     }
 
+    /**
+     * gets position of the parent
+     * @param i integer
+     * @return position
+     */
     protected static int parent(int i){
         return (i-1)/2;
     }
 
+    /**
+     * gets position of the left son
+     * @param i integer
+     * @return position left son
+     */
     protected static int left(int i){
         return 2*i +1;
     }
 
+    /**
+     * gets position of the right son
+     * @param i integer
+     * @return position right son
+     */
     protected static int right(int i){
         return (2*i+1)+1;
     }
+
+    /**
+     * class that sort the heap
+     * @param leaf
+     */
     protected void percolateUp(int leaf){
         int parent = parent(leaf);
         E value = data.get(leaf);
@@ -36,6 +63,11 @@ public class VectorHeap <E extends  Comparable<E>> implements PriorityQueue{
         }
         data.set(leaf,value);
     }
+
+    /**
+     * pushes down node to sort heap
+     * @param root
+     */
     protected void pushDownRoot(int root)
     // pre: 0 <= root < size
     // post: moves node at index root down
@@ -70,11 +102,19 @@ public class VectorHeap <E extends  Comparable<E>> implements PriorityQueue{
         }
     }
 
+    /**
+     * gets first element of heap
+     * @return node
+     */
     @Override
     public E getFirst() {
         return data.get(0);
     }
 
+    /**
+     * removes element from heap
+     * @return node
+     */
     @Override
     public E remove() {
         E minval = getFirst();
@@ -84,20 +124,36 @@ public class VectorHeap <E extends  Comparable<E>> implements PriorityQueue{
         return minval;
     }
 
+    /**
+     * add element to heap
+     * @param value
+     */
     public void add(Comparable value){
         data.add((E)value);
         percolateUp(data.size()-1);
     }
+
+    /**
+     * tells if heap is empty or not
+     * @return boolean
+     */
     @Override
     public boolean isEmpty() {
         return size()==0;
     }
 
+    /**
+     * tells size of heap
+     * @return size of heap
+     */
     @Override
     public int size() {
         return data.size();
     }
 
+    /**
+     * clears heap
+     */
     @Override
     public void clear() {
         data.removeAllElements();
